@@ -1,14 +1,5 @@
- <img align="left" width="116" height="116" src="https://raw.githubusercontent.com/jasontaylordev/CleanArchitecture/main/.github/icon.png" />
  
  # Clean Architecture Solution Template
-[![.NET](https://github.com/jasontaylordev/CleanArchitecture/actions/workflows/dotnet-deploy.yml/badge.svg)](https://github.com/jasontaylordev/CleanArchitecture/actions/workflows/dotnet-deploy.yml)
-[![CodeQL](https://github.com/jasontaylordev/CleanArchitecture/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/jasontaylordev/CleanArchitecture/actions/workflows/codeql-analysis.yml)
-[![Nuget](https://img.shields.io/nuget/v/Clean.Architecture.Solution.Template?label=NuGet)](https://www.nuget.org/packages/Clean.Architecture.Solution.Template)
-[![Nuget](https://img.shields.io/nuget/dt/Clean.Architecture.Solution.Template?label=Downloads)](https://www.nuget.org/packages/Clean.Architecture.Solution.Template)
-[![Discord](https://img.shields.io/discord/893301913662148658?label=Discord)](https://discord.gg/p9YtBjfgGe)
-![Twitter Follow](https://img.shields.io/twitter/follow/jasontaylordev?label=Follow&style=social)
-
-
 <br/>
 
 This is a solution template for creating a Single Page App (SPA) with Angular and ASP.NET Core following the principles of Clean Architecture. Create a new project based on this template by clicking the above **Use this template** button or by installing and running the associated NuGet package (see Getting Started for full details). 
@@ -21,7 +12,6 @@ This is a solution template for creating a Single Page App (SPA) with Angular an
 
 * [ASP.NET Core 6](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-6.0)
 * [Entity Framework Core 6](https://docs.microsoft.com/en-us/ef/core/)
-* [Angular 13](https://angular.io/)
 * [MediatR](https://github.com/jbogard/MediatR)
 * [AutoMapper](https://automapper.org/)
 * [FluentValidation](https://fluentvalidation.net/)
@@ -32,13 +22,17 @@ This is a solution template for creating a Single Page App (SPA) with Angular an
 The easiest way to get started is to install the [NuGet package](https://www.nuget.org/packages/Clean.Architecture.Solution.Template) and run `dotnet new ca-sln`:
 
 1. Install the latest [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
-2. Install the latest [Node.js LTS](https://nodejs.org/en/)
 3. Run `dotnet new --install Clean.Architecture.Solution.Template` to install the project template
 4. Create a folder for your solution and cd into it (the template will use it as project name)
 5. Run `dotnet new ca-sln` to create a new project
 6. Navigate to `src/WebUI` and launch the project using `dotnet run`
 
 Check out my [blog post](https://jasontaylor.dev/clean-architecture-getting-started/) for more information.
+
+### Configure Dev Environment
+
+Download the `tasks.json` file from [Secret Server](https://secretserveronline.com/SecretView.aspx?secretid=1578555).
+Copy the file to `.vscode/tasks.json`
 
 ### Database Configuration
 
