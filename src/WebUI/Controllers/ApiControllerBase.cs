@@ -9,7 +9,7 @@ namespace CleanArchitecture.WebUI.Controllers;
 [Route("[controller]")]
 public abstract class ApiControllerBase : ControllerBase
 {
-    private ISender _mediator = null!;
+    private ISender? _mediator;
 
     protected ISender Mediator => _mediator ??= HttpContext.RequestServices.GetRequiredService<ISender>();
 }
