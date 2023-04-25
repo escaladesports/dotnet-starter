@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v13.16.0.0 (NJsonSchema v10.7.1.0 (Newtonsoft.Json v13.0.0.0))",
+  "x-generator": "NSwag v13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "CleanArchitecture API",
@@ -202,16 +202,6 @@
           "204": {
             "description": ""
           },
-          "404": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
           "400": {
             "description": "",
             "content": {
@@ -257,10 +247,10 @@
           }
         ],
         "responses": {
-          "200": {
+          "204": {
             "description": ""
           },
-          "404": {
+          "default": {
             "description": "",
             "content": {
               "application/json": {
@@ -330,16 +320,6 @@
         "responses": {
           "204": {
             "description": ""
-          },
-          "404": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
           },
           "400": {
             "description": "",
@@ -532,16 +512,6 @@
           "204": {
             "description": ""
           },
-          "404": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
           "400": {
             "description": "",
             "content": {
@@ -587,10 +557,10 @@
           }
         ],
         "responses": {
-          "200": {
+          "204": {
             "description": ""
           },
-          "404": {
+          "default": {
             "description": "",
             "content": {
               "application/json": {
@@ -767,12 +737,46 @@
       "CreateTodoItemCommand": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "title"
+        ],
         "properties": {
           "listId": {
             "type": "integer",
             "format": "int32"
           },
           "title": {
+            "type": "string",
+            "maxLength": 200,
+            "minLength": 1,
+            "nullable": false
+          }
+        }
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "additionalProperties": {
+          "nullable": true
+        },
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
             "type": "string",
             "nullable": true
           }
@@ -781,6 +785,9 @@
       "UpdateTodoItemCommand": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "title"
+        ],
         "properties": {
           "id": {
             "type": "integer",
@@ -788,7 +795,9 @@
           },
           "title": {
             "type": "string",
-            "nullable": true
+            "maxLength": 200,
+            "minLength": 1,
+            "nullable": false
           },
           "done": {
             "type": "boolean"
@@ -920,16 +929,24 @@
       "CreateTodoListCommand": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "title"
+        ],
         "properties": {
           "title": {
             "type": "string",
-            "nullable": true
+            "maxLength": 200,
+            "minLength": 1,
+            "nullable": false
           }
         }
       },
       "UpdateTodoListCommand": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "title"
+        ],
         "properties": {
           "id": {
             "type": "integer",
@@ -937,7 +954,9 @@
           },
           "title": {
             "type": "string",
-            "nullable": true
+            "maxLength": 200,
+            "minLength": 1,
+            "nullable": false
           }
         }
       },

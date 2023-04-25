@@ -1,12 +1,12 @@
-﻿using MediatR;
-
+﻿using CleanArchitecture.WebUI.Filters;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchitecture.WebUI.Controllers;
 
 [ApiController]
-[ApiConventionType(typeof(DefaultApiConventions))]
-[Route("[controller]")]
+[ApiExceptionFilter]
+[Route("api/[controller]")]
 public abstract class ApiControllerBase : ControllerBase
 {
     private ISender? _mediator;
