@@ -6,7 +6,7 @@ namespace CleanArchitecture.WebUI.Controllers;
 
 [ApiController]
 [ApiExceptionFilter]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public abstract class ApiControllerBase : ControllerBase
 {
     private ISender? _mediator;

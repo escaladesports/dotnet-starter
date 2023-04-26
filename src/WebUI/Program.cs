@@ -61,6 +61,11 @@ try
     {
         app.UseDeveloperExceptionPage();
 
+        app.UseReDoc(settings =>
+        {
+            settings.DocumentPath = "/openapi.json";
+            settings.Path = "/docs";
+        });
         // Initialise and seed database
         // using (var scope = app.Services.CreateScope())
         // {
@@ -79,7 +84,15 @@ try
     app.UseHealthChecks("/health");
     // app.UseHttpsRedirection();
     // app.UseStaticFiles();
-
+    app.UseOpenApi(settings =>
+    {
+        settings.Path = "/openapi.json";
+    });
+    // app.UseSwaggerUi3(settings =>
+    // {
+    //     settings.Path = "/api";
+    //     settings.DocumentPath = "/api/specification.json";
+    // });
     app.UseRouting();
 
     // app.UseAuthentication();

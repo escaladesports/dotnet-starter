@@ -1,8 +1,10 @@
-﻿using CleanArchitecture.Application.Common.Interfaces;
+﻿using System.Reflection;
+using CleanArchitecture.Application.Common.Interfaces;
 using CleanArchitecture.Infrastructure.Persistence;
 using CleanArchitecture.WebUI.Services;
 using Microsoft.AspNetCore.Mvc;
 using NSwag;
+using NSwag.Examples;
 using NSwag.Generation.Processors.Security;
 using ZymLabs.NSwag.FluentValidation;
 
@@ -37,6 +39,7 @@ public static class ConfigureServices
         services.Configure<ApiBehaviorOptions>(options =>
             options.SuppressModelStateInvalidFilter = true);
 
+        services.AddExampleProviders(Assembly.GetExecutingAssembly());
         services.AddOpenApiDocument((configure, serviceProvider) =>
         {
             var fluentValidationSchemaProcessor = serviceProvider.CreateScope().ServiceProvider.GetRequiredService<FluentValidationSchemaProcessor>();
@@ -44,16 +47,16 @@ public static class ConfigureServices
             // Add the fluent validations schema processor
             configure.SchemaProcessors.Add(fluentValidationSchemaProcessor);
 
-            configure.Title = "CleanArchitecture API";
-            configure.AddSecurity("JWT", Enumerable.Empty<string>(), new OpenApiSecurityScheme
+            configure.Title = "Dotnet Starter API";
+            configure.AddSecurity("API Key", Enumerable.Empty<string>(), new OpenApiSecurityScheme
             {
                 Type = OpenApiSecuritySchemeType.ApiKey,
-                Name = "Authorization",
-                In = OpenApiSecurityApiKeyLocation.Header,
-                Description = "Type into the textbox: Bearer {your JWT token}."
+                Name = "X-Api-Key",
+                In = OpenApiSecurityApiKeyLocation.Header
             });
 
             configure.OperationProcessors.Add(new AspNetCoreOperationSecurityScopeProcessor("JWT"));
+            configure.AddExamples(serviceProvider);
         });
 
         return services;
