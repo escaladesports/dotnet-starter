@@ -35,4 +35,4 @@ ENV DB2_CLI_DRIVER_INSTALL_PATH="/app/clidriver"
 WORKDIR /app
 COPY --from=publish /app/publish .
 RUN cp /db2/license/db2consv_ee.lic /app/clidriver/license
-ENTRYPOINT ["dotnet", "CleanArchitecture.WebUI.dll"]
+ENTRYPOINT ["dotnet", "WebUI.dll"]
