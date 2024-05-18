@@ -7,20 +7,26 @@ namespace CleanArchitecture.Application.Common.Behaviours;
 public class LoggingBehaviour<TRequest> : IRequestPreProcessor<TRequest> where TRequest : notnull
 {
     private readonly ILogger _logger;
-    private readonly ICurrentUserService _currentUserService;
+    private readonly IUser _user;
 
-    public LoggingBehaviour(ILogger<TRequest> logger, ICurrentUserService currentUserService)
+    public LoggingBehaviour(ILogger<TRequest> logger, IUser user)
     {
         _logger = logger;
-        _currentUserService = currentUserService;
+        _user = user;
     }
 
     public async Task Process(TRequest request, CancellationToken cancellationToken)
     {
         var requestName = typeof(TRequest).Name;
-        var userId = _currentUserService.UserId ?? string.Empty;
+        var userId = _user.Id ?? string.Empty;
+        // string? userName = string.Empty;
 
-        _logger.LogInformation("CleanArchitecture Request: {Name} {@UserId} {@Request}",
-            requestName, userId, request);
+        // if (!string.IsNullOrEmpty(userId))
+        // {
+        //     userName = await _identityService.GetUserNameAsync(userId);
+        // }
+        await Task.Run(() => _logger.LogInformation("CleanArchitecture Request: {Name} {@UserId} {@Request}",
+            requestName, userId, request), cancellationToken);
+        ;
     }
 }

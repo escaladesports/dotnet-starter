@@ -1,12 +1,18 @@
 {
     "configurations": [
         {
+            "name": "C#: Web Debug",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/src/Web/Web.csproj"
+        },
+        {
             "name": "Docker .NET Core Launch",
             "type": "docker",
             "request": "launch",
             "preLaunchTask": "docker-run: debug",
             "netCore": {
-                "appProject": "${workspaceFolder}/src/WebUI/WebUI.csproj"
+                "appProject": "${workspaceFolder}/src/Web/Web.csproj"
             },
             "dockerServerReadyAction": {
                 "uriFormat": "%s://localhost:%s/docs"

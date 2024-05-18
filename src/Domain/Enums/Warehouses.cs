@@ -2,7 +2,7 @@
 {
     public class Warehouses
     {
-        public EvansvilleWarehouse Evansville;
+        public EvansvilleWarehouse? Evansville;
 
         public class EvansvilleWarehouse
         {

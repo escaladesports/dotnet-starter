@@ -4,7 +4,7 @@ using CleanArchitecture.Domain.Entities;
 
 namespace CleanArchitecture.Application.Items.Queries.GetItem;
 
-public class ItemDto : IMapFrom<ItemMaster>
+public class ItemDto //: IMapFrom<ItemMaster>
 {
     public string? ItemNumber { get; set; }
     public string? ItemTermType { get; set; }
