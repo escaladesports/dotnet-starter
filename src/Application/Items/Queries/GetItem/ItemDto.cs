@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using CleanArchitecture.Application.Common.Mappings;
-using CleanArchitecture.Domain.Entities;
+﻿using CleanArchitecture.Domain.Entities;
 
 namespace CleanArchitecture.Application.Items.Queries.GetItem;
 
@@ -12,6 +10,14 @@ public class ItemDto //: IMapFrom<ItemMaster>
     public string? ItemDescription { get; set; }
     public int ItemProdLine { get; set; }
     public decimal ItemWeight { get; set; }
+
+    private class Mapping : Profile
+    {
+        public Mapping()
+        {
+            CreateMap<ItemMaster, ItemDto>();
+        }
+    }
 
     // public void Mapping(Profile profile)
     // {

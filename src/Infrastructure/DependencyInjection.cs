@@ -37,15 +37,16 @@ public static class DependencyInjection
                                 ))
                                 .ReplaceService<IModelCacheKeyFactory, DbSchemaAwareModelCacheKeyFactory>());
 
+        services.AddScoped<IDbContextSchema, DbContextSchema>();
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
 
-        services.AddScoped<ApplicationDbContextInitialiser>();
+        // services.AddScoped<ApplicationDbContextInitialiser>();
 
         services.AddSingleton(TimeProvider.System);
         // services.AddTransient<IIdentityService, IdentityService>();
 
-        services.AddAuthorization(options =>
-            options.AddPolicy(Policies.CanPurge, policy => policy.RequireRole(Roles.Administrator)));
+        // services.AddAuthorization(options =>
+        //     options.AddPolicy(Policies.CanPurge, policy => policy.RequireRole(Roles.Administrator)));
 
         return services;
     }
